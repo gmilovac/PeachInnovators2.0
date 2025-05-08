@@ -1,7 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv('/Users/adamvonbismarck/Desktop/CS1951A/final-project-peach-innovators/data_deliverable/data'
-                   '/full_data/final-data.csv')
+data = pd.read_csv('/Users/gordanmilovac/Desktop/cs1420/PeachInnovators2.0/data_deliverable/data/full_data/final-data.csv')
 
 average_watts = data.groupby(['Box Number', 'Session Number', 'Piece Number'])['Watts'].mean().reset_index()
 average_watts.columns = ['Box Number', 'Session Number', 'Piece Number', 'Average Watts']
@@ -17,5 +16,4 @@ data = pd.merge(data, average_watts, on=['Box Number', 'Session Number', 'Piece 
 data = pd.merge(data, variance_watts, on=['Box Number', 'Session Number', 'Piece Number'], how='left')
 data = pd.merge(data, average_eff_length, on=['Box Number', 'Session Number', 'Piece Number'], how='left')
 
-data.to_csv('/Users/adamvonbismarck/Desktop/CS1951A/final-project-peach-innovators/data_deliverable/data'
-            '/full_data/final-data-with-watts-stats.csv', index=False)
+data.to_csv('/Users/gordanmilovac/Desktop/cs1420/PeachInnovators2.0/data_deliverable/data/full_data/final-data-with-watts-stats.csv', index=False)
